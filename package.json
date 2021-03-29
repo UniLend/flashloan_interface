@@ -1,0 +1,41 @@
+{
+  "name": "unilend-finance-flashloan-interface",
+  "version": "1.0.0",
+  "description": "",
+  "verify": {
+    "contracts": ""
+  },
+  "scripts": {
+    "testrpc": "ganache-cli --mnemonic 'blind cabin link wise ask bronze deliver job govern verify device kit' --gasLimit 8000000",
+    "compile": "truffle compile",
+    "test": " truffle test test/*",
+    "deploy": "truffle deploy",
+    "verify": "truffle run verify $npm_package_verify_contracts --network mainnet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UniLend/flashloan_interface"
+  },
+  "author": "Unilend Team <dev@unilend.finance>",
+  "license": "MIT",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.44",
+    "bip39": "^3.0.2",
+    "eth-decoder": "0.0.1-beta.2",
+    "eth-gas-reporter": "^0.2.17",
+    "eth-sig-util": "^2.5.3",
+    "ethereumjs-util": "^7.0.5",
+    "ethereumjs-wallet": "^1.0.0",
+    "ganache-cli": "^6.10.2",
+    "openzeppelin-solidity": "^3.2.0",
+    "truffle": "^5.1.44",
+    "truffle-hdwallet-provider": "1.0.5",
+    "truffle-plugin-verify": "^0.3.8"
+  },
+  "devDependencies": {
+    "bignumber.js": "^9.0.0",
+    "bluebird": "^3.7.2",
+    "chai": "^4.2.0",
+    "chai-bignumber": "^3.0.0"
+  }
+}
