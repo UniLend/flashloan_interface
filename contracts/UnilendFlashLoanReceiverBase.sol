@@ -217,30 +217,17 @@ contract UnilendFlashLoanReceiverBase {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
     
-    mapping(uint => address payable) private coreAddress;
+    address payable public unilendCoreAddress;
     address payable public unilendFlashLoanCore;
     
     constructor() {
-        coreAddress[1] = payable(0xc06C54D4007F8c4e375A0fE9F9ED7b43b3cb2785);
-        coreAddress[3] = payable(0xc06C54D4007F8c4e375A0fE9F9ED7b43b3cb2785);
+        unilendCoreAddress = payable(0xf09f8Fb3f0224b835f190CC801F5F1a2f9fAbf40);
     }
     
     receive() payable external {}
     
     function ethAddress() internal pure returns(address) {
         return 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
-    }
-    
-    function getChainID() internal view returns (uint256) {
-        uint256 id;
-        assembly {
-            id := chainid()
-        }
-        return id;
-    }
-    
-    function getUnilendCoreAddress() internal view returns(address payable) {
-        return coreAddress[getChainID()];
     }
     
     function getBalanceInternal(address _target, address _reserve) internal view returns(uint256) {
@@ -260,7 +247,7 @@ contract UnilendFlashLoanReceiverBase {
     }
     
     function flashLoan(address _target, address _asset, uint256 _amount, bytes memory _params) internal {
-        IUnilendFlashLoanCoreBase(getUnilendCoreAddress()).flashLoan(_target, _asset, _amount, _params);
+        IUnilendFlashLoanCoreBase(unilendCoreAddress).flashLoan(_target, _asset, _amount, _params);
     }
     
 }
