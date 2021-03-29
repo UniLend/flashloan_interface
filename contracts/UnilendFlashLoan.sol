@@ -29,7 +29,7 @@ contract Flashloan is UnilendFlashLoanReceiverBase {
         
         
         uint totalDebt = _amount.add(_fee);
-        transferInternal(getUnilendCoreAddress(), _reserve, totalDebt);
+        transferInternal(unilendCoreAddress, _reserve, totalDebt);
     }
     
     function flashloan(address _asset, uint _amount) payable external {
