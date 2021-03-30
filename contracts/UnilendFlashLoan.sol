@@ -21,6 +21,7 @@ contract Flashloan is UnilendFlashLoanReceiverBase {
         external
     {
         require(_amount <= getBalanceInternal(address(this), _reserve), "Invalid balance, was the flashLoan successful?");
+        _params;
         
         //
         // Your logic goes here.
@@ -29,7 +30,7 @@ contract Flashloan is UnilendFlashLoanReceiverBase {
         
         
         uint totalDebt = _amount.add(_fee);
-        transferInternal(unilendCoreAddress, _reserve, totalDebt);
+        transferInternal(getUnilendCoreAddress(), _reserve, totalDebt);
     }
     
     function flashloan(address _asset, uint _amount) payable external {
