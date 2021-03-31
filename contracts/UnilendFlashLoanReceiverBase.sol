@@ -240,7 +240,7 @@ contract UnilendFlashLoanReceiverBase {
     }
     
     function getUnilendCoreAddress() internal view returns(address payable) {
-        require(coreAddress[getChainID()] == address(0), "UnilendV1: Chain not supported");
+        require(coreAddress[getChainID()] != address(0), "UnilendV1: Chain not supported");
         return coreAddress[getChainID()];
     }
     
