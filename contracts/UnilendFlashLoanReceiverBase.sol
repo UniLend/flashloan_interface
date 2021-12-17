@@ -227,6 +227,8 @@ contract UnilendFlashLoanReceiverBase {
         coreAddress[56] = payable(0x13A145D215182924c89F2aBc7D358DCc72F8F788);
         coreAddress[97] = payable(0x13A145D215182924c89F2aBc7D358DCc72F8F788);
         coreAddress[137] = payable(0x13A145D215182924c89F2aBc7D358DCc72F8F788);
+        coreAddress[1285] = payable(0x13A145D215182924c89F2aBc7D358DCc72F8F788);
+        coreAddress[1287] = payable(0x13A145D215182924c89F2aBc7D358DCc72F8F788);
     }
     
     receive() payable external {}
